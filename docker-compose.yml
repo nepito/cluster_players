@@ -1,10 +1,10 @@
 version: "3.1"
 services:
-  islasgeci:
+  nies:
     build:
       context: .
       dockerfile: Dockerfile
-    image: islasgeci/templater:latest
+    image: nepolin/templater:latest
     command: bash
     volumes:
       - $PWD:/workdir
