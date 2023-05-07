@@ -1,5 +1,5 @@
-Package: templater
-Title: Template for R projects
+Package: clupla
+Title: Clustering players projects
 Authors@R: c(
     person(given = "Nepo Rojas",
            family = "nies",
@@ -7,15 +7,16 @@ Authors@R: c(
            email = "nepo.rojas@gmail.com"
            ))
 Config/testthat/edition: 3
-Description: Plantilla del NIES para proyectos en R
+Description: Librería para clasificar jugadores. Los daots vienen de Wyscout.
 Encoding: UTF-8
 Imports:
     R6,
-    tidyverse
+    tidyverse,
+    umap
 LazyData: true
 License: AGPL-3.0-or-later
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.1
 Suggests:
     devtools,
     roxygen2,
