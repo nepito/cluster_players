@@ -1,6 +1,6 @@
-<a href="https://www.islas.org.mx"><img src="https://www.islas.org.mx/img/logo.svg" align="right" width="256" /></a>
+<a href="http://nies.soccer/"><img src="https://github.com/nepito/world_cup_semis/blob/develop/img/logo.jpeg" align="right" width="256" /></a>
 
-# Template for R projects
+# Cluster of players
 
 ## Step to use
 
