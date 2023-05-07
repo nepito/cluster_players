@@ -20,7 +20,9 @@ check:
 
 clean:
 	rm --force *.tar.gz
+	rm --force *.pdf
 	rm --force --recursive tests/testthat/_snaps
+	rm --force --recursive clupla.Rcheck
 	rm --force NAMESPACE
 
 coverage: setup tests
