@@ -58,14 +58,14 @@ select_daves <- function(all_variables) {
         "Successful dribbles, %",
         "Penalties taken",
         "Penalty conversion, %"
-      ) 
-    ) |>
-      mutate(
-        shots = 100 * `Shots per 90`/`Shots on target, %`,
-        Penalties_won = ifelse(`Penalties taken` == 0, 0, 100 * `Penalties taken` / `Penalty conversion, %`),
-        Successful_dribbles = 100 * `Dribbles per 90` / `Successful dribbles, %`
-      ) |>
-      select(
-        -c("Penalty conversion, %", "Successful dribbles, %", "Shots on target, %")
       )
+    ) |>
+    mutate(
+      shots = 100 * `Shots per 90` / `Shots on target, %`,
+      Penalties_won = ifelse(`Penalties taken` == 0, 0, 100 * `Penalties taken` / `Penalty conversion, %`),
+      Successful_dribbles = 100 * `Dribbles per 90` / `Successful dribbles, %`
+    ) |>
+    select(
+      -c("Penalty conversion, %", "Successful dribbles, %", "Shots on target, %")
+    )
 }
