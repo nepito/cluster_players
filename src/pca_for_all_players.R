@@ -27,7 +27,7 @@ deciles_to_plot <- the_roles_deciles %>%
 
 larga <- the_roles_deciles %>%
   pivot_longer(cols = 2:8, names_to = "PC", values_to = "deciles")
-player_name = "E. Haaland"
+player_name <- "E. Haaland"
 aquino <- larga %>%
   filter(Player == player_name)
 
