@@ -27,9 +27,13 @@ deciles_to_plot <- the_roles_deciles %>%
 
 larga <- the_roles_deciles %>%
   pivot_longer(cols = 2:8, names_to = "PC", values_to = "deciles")
+player_name = "E. Haaland"
 aquino <- larga %>%
-  filter(Player == "J. Aquino")
+  filter(Player == player_name)
 
 aquino %>% ggplot(aes(PC, deciles)) +
   geom_col() +
-  coord_polar()
+  coord_polar() +
+  ggtitle(player_name)
+
+ggsave("haaland.jpg")
