@@ -1,15 +1,18 @@
 library(tidyverse)
 library(umap)
-#library(xgTools)
+# library(xgTools)
 set.seed(2)
-players_1 <- read_csv("/workdir/tests/data/cleaned_LigaMX_1.csv", show_col_types = FALSE)
+players_1 <- read_csv("/workdir/tests/data/all_players.csv", show_col_types = FALSE)
 
 
 cleaned_players <- players_1 %>%
   filter(`Minutes played` > 900 & Position != "GK")
-
-my_umap <- cleaned_players %>%
-  select(-c(Player, "Minutes played", Position)) %>%
+players_varaibles <- cleaned_players %>%
+  select(c(Player, "Minutes played", Position))
+metric = "daves"
+variables <- cleaned_players %>%
+  select_variables[[metric]]()
+my_umap <- variables %>%
   scale() %>%
   umap()
 
@@ -24,13 +27,13 @@ my_umap <- cleaned_players %>%
   umap(n_neighbors = 10, knn = my_umap_10)
 
 datos <- tibble(x = my_umap$layout[, 1], y = my_umap$layout[, 2])
-n_grupos <- 6
+n_grupos <- 5
 groups <- kmeans(datos, n_grupos)
 
 datos$grupos <- factor(groups$cluster)
 ggplot(datos, aes(x = x, y = y, color = grupos)) +
   geom_point()
-ggsave("figurita.png")
+ggsave(glue::glue("figurita_{metric}.png"))
 
 cleaned_players$grupos <- factor(groups$cluster)
 
@@ -39,4 +42,4 @@ cleaned_players$grupos <- factor(groups$cluster)
 cleaned_players %>%
   select("Player", "Position", grupos) %>%
   left_join(players_1, by = c("Player", "Position")) %>%
-  write_csv("results/cleaned_LigaMX_1_with_grupo.csv")
+  write_csv(glue::glue("results/cleaned_LigaMX_1_with_grupo_{metric}.csv"))
