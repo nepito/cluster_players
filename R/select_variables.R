@@ -130,32 +130,16 @@ central_midfielder <- function(all_variables) {
   all_variables |>
     select(
       c(
-        "Aerial duels per 90",
-        "Interceptions per 90",
-        "Shots blocked per 90",
-        "Passes per 90",
-        "Key passes per 90",
-        "Progressive passes per 90",
-        "Passes to final third per 90",
-        "Long passes per 90",
-        "Short / medium passes per 90",
-        "Through passes per 90",
-        "Passes to penalty area per 90",
-        "Back passes per 90",
-        "Lateral passes per 90",
-        "Forward passes per 90",
-        "Touches in box per 90",
-        "Dribbles per 90",
-        "Fouls suffered per 90",
-        "Fouls per 90",
-        "Received passes per 90",
-        "Received long passes per 90",
-        "Second assists per 90",
-        "Shot assists per 90",
-        "Third assists per 90",
-        "Smart passes per 90",
         "Crosses per 90",
-        "Crosses to goalie box per 90"
+        "Crosses to goalie box per 90",
+        "Received long passes per 90",
+        "Passes to penalty area per 90",
+        "Key passes per 90",
+        "Interceptions per 90",
+        "Long passes per 90",
+        "Shots blocked per 90",
+        "Progressive passes per 90",
+        "Dribbles per 90",
       )
     )
 }
