@@ -4,14 +4,14 @@ library(umap)
 set.seed(2)
 players_1 <- read_csv("/workdir/results/cleaned_LigaMX_1_with_grupo_daves.csv", show_col_types = FALSE)
 
-macro_grupo <- 4
+macro_grupo <- 5
 
 cleaned_players <- players_1 %>%
   filter(`Minutes played` > 900 & Position != "GK") |>
   filter(grupos == macro_grupo)
 players_varaibles <- cleaned_players %>%
   select(c(Player, "Minutes played", Position))
-metric = "central_attackers"
+metric <- "central_midfielder"
 variables <- cleaned_players %>%
   select_variables[[metric]]()
 my_umap <- variables %>%

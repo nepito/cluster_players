@@ -61,7 +61,7 @@ select_daves <- function(all_variables) {
       )
     ) |>
     mutate(
-      shots = ifelse(`Shots on target, %` == 0, 0,100 * `Shots per 90` / `Shots on target, %`),
+      shots = ifelse(`Shots on target, %` == 0, 0, 100 * `Shots per 90` / `Shots on target, %`),
       Penalties_won = ifelse(`Penalty conversion, %` == 0, 0, 100 * `Penalties taken` / `Penalty conversion, %`),
       Successful_dribbles = ifelse(`Successful dribbles, %` == 0, 0, 100 * `Dribbles per 90` / `Successful dribbles, %`)
     ) |>
@@ -144,7 +144,7 @@ central_midfielder <- function(all_variables) {
     )
 }
 
-select_variables = list(
+select_variables <- list(
   "daves" = select_daves,
   "soccerment" = select_soccerment,
   "second" = select_second,

@@ -9,7 +9,7 @@ cleaned_players <- players_1 %>%
   filter(`Minutes played` > 900 & Position != "GK")
 players_varaibles <- cleaned_players %>%
   select(c(Player, "Minutes played", Position))
-metric = "daves"
+metric <- "daves"
 variables <- cleaned_players %>%
   select_variables[[metric]]()
 my_umap <- variables %>%
