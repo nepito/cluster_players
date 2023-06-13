@@ -1,0 +1,20 @@
+type_of_variable <- list(
+  "Interceptions per 90"="Defense",
+  "Shots blocked per 90"="Defense",
+  "Long passes per 90" = "Buildup",
+  "Progressive passes per 90" = "Buildup",
+  "Passes to final third per 90" = "Buildup",
+  "Through passes per 90" = "Chance creation",
+  "Passes to penalty area per 90" = "Chance creation",
+  "Back passes per 90" = "Positioning",
+  "Lateral passes per 90" = "Positioning",
+  "Shots per 90" = "Positioning",
+  "Fouls per 90" = "Defense",
+  "Aerial duels per 90" = "Defense",
+  "Sliding tackles per 90" = "Defense",
+  "Touches in box per 90" = "Chance creation",
+  "Progressive runs per 90" = "Buildup",
+  "Dribbles per 90" = "Chance creation",
+  "Crosses per 90" = "Buildup",
+  "Crosses to goalie box per 90" = "Buildup"
+)
