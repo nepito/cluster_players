@@ -2,7 +2,7 @@ library(tidyverse)
 library(umap)
 source("/workdir/R/expansion_all_players.R")
 source("/workdir/R/select_variables.R")
-sub_group = 3
+sub_group <- 3
 players <- readr::read_csv("results/cleaned_all_players_second_with_grupo_central_attackers.csv", show_col_types = FALSE) |>
   distinct() |>
   filter(s_grupos == sub_group)
@@ -12,7 +12,7 @@ players_pca <- players |>
 
 players_rotations <- get_rotations_from_pca(players_pca)
 
-all_variables <- comprehenr::to_vec(for(i in 1:6) sort_pca_positive(players_rotations, i)[1:4,2]) |>
+all_variables <- comprehenr::to_vec(for (i in 1:6) sort_pca_positive(players_rotations, i)[1:4, 2]) |>
   unique()
 
 cuantiles_players <- players |>
@@ -25,7 +25,7 @@ for (variable in all_variables) {
 typo_valiable <- comprehenr::to_vec(for (varible in all_variables) type_of_variable[[varible]])
 tov <- tibble::tibble("variable" = all_variables, "type_variable" = typo_valiable)
 
-larga <- cuantiles_players[!duplicated(cuantiles_players$Player),] |>
+larga <- cuantiles_players[!duplicated(cuantiles_players$Player), ] |>
   pivot_longer(!Player, names_to = "variable", values_to = "deciles") |>
   left_join(tov) |>
   write_csv("results/larga_player.csv")

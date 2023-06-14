@@ -1,6 +1,6 @@
 type_of_variable <- list(
-  "Interceptions per 90"="Defense",
-  "Shots blocked per 90"="Defense",
+  "Interceptions per 90" = "Defense",
+  "Shots blocked per 90" = "Defense",
   "Long passes per 90" = "Buildup",
   "Progressive passes per 90" = "Buildup",
   "Passes to final third per 90" = "Buildup",

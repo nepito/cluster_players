@@ -2,16 +2,17 @@ library(tidyverse)
 library(umap)
 # library(xgTools)
 set.seed(2)
-players_1 <- read_csv("/workdir/results/cleaned_LigaMX_1_with_grupo_daves.csv", show_col_types = FALSE)
+players_1 <- read_csv("/workdir/results/cleaned_LigaMX_1_with_grupo_daves.csv", show_col_types = FALSE) |>
+  distinct()
 
-macro_grupo <- 5
+macro_grupo <- 4
 
 cleaned_players <- players_1 %>%
   filter(`Minutes played` > 900 & Position != "GK") |>
   filter(grupos == macro_grupo)
 players_varaibles <- cleaned_players %>%
   select(c(Player, "Minutes played", Position))
-metric <- "central_midfielder"
+metric <- "central_attackers"
 variables <- cleaned_players %>%
   select_variables[[metric]]()
 my_umap <- variables %>%
