@@ -1,9 +1,10 @@
 library(tidyverse)
+nies <- png::readPNG("/workdir/tests/data/logo_nies.png", native = TRUE)
+premier <- png::readPNG("/workdir/tests/data/logo_premier.png", native = TRUE)
 larga_players <- readr::read_csv("results/larga_player.csv") |>
   distinct()
 player_name <- "K. De Bruyne"
 player_stats <- larga_players |>
-  #  arrange(color) |>
   dplyr::filter(Player == player_name) |>
   arrange(type_variable)
 
@@ -70,6 +71,8 @@ player_to_plot %>% ggplot(aes(id, deciles, fill = factor(type_variable))) +
   ylab("") +
   xlab("") +
   geom_text(aes(label = deciles), vjust = 0) +
-  geom_text(data = label_data, aes(x = id, y = deciles + 10, label = variable, hjust = hjust), color = "black", fontface = "bold", alpha = 0.6, size = 2.5, angle = label_data$angle, inherit.aes = FALSE)
+  geom_text(data = label_data, aes(x = id, y = deciles + 10, label = variable, hjust = hjust), color = "black", fontface = "bold", alpha = 0.6, size = 2.5, angle = label_data$angle, inherit.aes = FALSE) +
+  patchwork::inset_element(p = nies, left = 0.005, bottom = 0.01, right = 0.295, top = 0.1) +
+  patchwork::inset_element(p = premier, left = 0.900, bottom = 0.90, right = 0.999, top = 0.999)
 
 ggsave(glue::glue("{player_name}.jpg"))
