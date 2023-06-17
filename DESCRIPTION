@@ -7,7 +7,7 @@ Authors@R: c(
            email = "nepo.rojas@gmail.com"
            ))
 Config/testthat/edition: 3
-Description: Librería para clasificar jugadores. Los daots vienen de Wyscout.
+Description: Librería para clasificar jugadores. Los datos vienen de Wyscout.
 Encoding: UTF-8
 Imports:
     R6,
