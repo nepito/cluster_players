@@ -3,4 +3,8 @@
 # Cluster of players
 
 ## Step to use
+### ¿Cómo hacemos la primera clasificación?
+``` R
+source("src/second_cluster.R")
+```
 
