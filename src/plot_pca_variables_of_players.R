@@ -1,22 +1,24 @@
 library(tidyverse)
 logo <- list(
   "inglaterra" = "/workdir/tests/data/logo_premier.png",
+  "Serie A" = "/workdir/tests/data/logo_serie_a.png",
   "Primeira liga" = "/workdir/tests/data/logo_primeira.png"
 )
+league <- "Serie A"
 nies <- png::readPNG("/workdir/tests/data/logo_nies.png", native = TRUE)
-premier <- png::readPNG(logo[["Primeira liga"]], native = TRUE)
+premier <- png::readPNG(logo[[league]], native = TRUE)
 larga_players <- readr::read_csv("results/larga_player.csv") |>
   distinct()
-player_name <- "M. Taremi"
+player_name <- "J. Vásquez"
 player_stats <- larga_players |>
   dplyr::filter(Player == player_name) |>
   arrange(type_variable)
-players <- readr::read_csv("results/second_clustered_macro_4_with_central_attackers.csv", show_col_types = FALSE) |>
-  dplyr::filter(Player == player_name)
-write_title <- function(player) {
-  glue::glue("{player$Player}, {player$Team}, Primeira liga \n Percentile ranking ({player$`Minutes played`} minutes played)")
+players <- readr::read_csv("/workdir/tests/data/all_players.csv", show_col_types = FALSE) |>
+  dplyr::filter(Player == player_name, year == "23")
+write_title <- function(player, league) {
+  glue::glue("{player$Player}, {player$Team}, {league} \n Percentile ranking ({player$`Minutes played`} minutes played)")
 }
-title <- write_title(players)
+title <- write_title(players, league)
 
 player_stats$id <- seq(1, nrow(player_stats))
 
