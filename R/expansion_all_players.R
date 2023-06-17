@@ -10,6 +10,7 @@ get_pca_by_group <- function(data, group) {
 get_pca <- function(data) {
   my_pca <- data %>%
     select(-c(Player, "Minutes played", Position, grupos)) %>%
+    select_soccerment() |>
     prcomp(scale = TRUE, center = TRUE, retx = T)
   return(my_pca)
 }
@@ -21,6 +22,7 @@ get_rotations_from_pca <- function(my_pca) {
     cbind(as.tibble(names_rows))
   return(rotaciones)
 }
+
 show_15_players_of_group <- function(data, group) {
   data %>%
     filter(grupos == group) %>%
@@ -33,7 +35,14 @@ show_15_players_of_group <- function(data, group) {
 sort_pca <- function(rotations, axis) {
   names_pc <- names(rotations)
   rotations %>%
-    select(c(axis, 9)) %>%
+    select(all_of(c(axis, 9))) %>%
     arrange(-abs(.data[[names_pc[axis]]])) %>%
     print()
+}
+
+sort_pca_positive <- function(rotations, axis) {
+  names_pc <- names(rotations)
+  rotations %>%
+    select(all_of(c(axis, 9))) %>%
+    arrange(.data[[names_pc[axis]]])
 }
