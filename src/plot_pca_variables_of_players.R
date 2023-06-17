@@ -1,12 +1,22 @@
 library(tidyverse)
+logo <- list(
+  "inglaterra"="/workdir/tests/data/logo_premier.png",
+  "Primeira liga"="/workdir/tests/data/logo_primeira.png"
+  )
 nies <- png::readPNG("/workdir/tests/data/logo_nies.png", native = TRUE)
-premier <- png::readPNG("/workdir/tests/data/logo_premier.png", native = TRUE)
+premier <- png::readPNG(logo[["Primeira liga"]], native = TRUE)
 larga_players <- readr::read_csv("results/larga_player.csv") |>
   distinct()
-player_name <- "K. De Bruyne"
+player_name <- "M. Taremi"
 player_stats <- larga_players |>
   dplyr::filter(Player == player_name) |>
   arrange(type_variable)
+players <- readr::read_csv("results/second_clustered_macro_4_with_central_attackers.csv", show_col_types = FALSE) |>
+  dplyr::filter(Player == player_name)
+write_title <- function(player) {
+  glue::glue("{player$Player}, {player$Team}, Primeira liga \n Percentile ranking ({player$`Minutes played`} minutes played)")
+}
+title <- write_title(players)
 
 player_stats$id <- seq(1, nrow(player_stats))
 
@@ -61,18 +71,19 @@ player_to_plot %>% ggplot(aes(id, deciles, fill = factor(type_variable))) +
     axis.text = element_blank(),
     axis.text.y = element_blank(),
     axis.ticks = element_blank(),
-    legend.position = "bottom",
+    legend.position = c(0.9, 0.1),
+    legend.box = "horizontal"
   ) +
-  guides(fill = guide_legend(title = "Game phase")) +
+  guides(fill = guide_legend(title = "")) +
   geom_col() +
   coord_polar() +
   scale_y_continuous(limits = c(-50, 120), breaks = seq(20, 100, by = 20)) +
-  ggtitle(player_name) +
+  ggtitle(title) +
   ylab("") +
   xlab("") +
   geom_text(aes(label = deciles), vjust = 0) +
   geom_text(data = label_data, aes(x = id, y = deciles + 10, label = variable, hjust = hjust), color = "black", fontface = "bold", alpha = 0.6, size = 2.5, angle = label_data$angle, inherit.aes = FALSE) +
   patchwork::inset_element(p = nies, left = 0.005, bottom = 0.01, right = 0.295, top = 0.1) +
-  patchwork::inset_element(p = premier, left = 0.900, bottom = 0.90, right = 0.999, top = 0.999)
+  patchwork::inset_element(p = premier, left = 0.900, bottom = 0.90, right = 1.05, top = 1.05)
 
 ggsave(glue::glue("{player_name}.jpg"))
