@@ -1,8 +1,8 @@
 library(tidyverse)
 logo <- list(
-  "inglaterra"="/workdir/tests/data/logo_premier.png",
-  "Primeira liga"="/workdir/tests/data/logo_primeira.png"
-  )
+  "inglaterra" = "/workdir/tests/data/logo_premier.png",
+  "Primeira liga" = "/workdir/tests/data/logo_primeira.png"
+)
 nies <- png::readPNG("/workdir/tests/data/logo_nies.png", native = TRUE)
 premier <- png::readPNG(logo[["Primeira liga"]], native = TRUE)
 larga_players <- readr::read_csv("results/larga_player.csv") |>
