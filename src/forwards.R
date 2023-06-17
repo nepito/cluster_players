@@ -2,8 +2,9 @@ library(tidyverse)
 library(umap)
 source("/workdir/R/expansion_all_players.R")
 source("/workdir/R/select_variables.R")
+source("/workdir/R/tyoe_of_variable.R")
 sub_group <- 3
-players <- readr::read_csv("results/cleaned_all_players_second_with_grupo_central_attackers.csv", show_col_types = FALSE) |>
+players <- readr::read_csv("results/second_clustered_macro_4_with_central_attackers.csv", show_col_types = FALSE) |>
   distinct() |>
   filter(s_grupos == sub_group)
 
