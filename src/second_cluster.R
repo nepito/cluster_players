@@ -2,14 +2,15 @@ library(tidyverse)
 library(umap)
 source("R/select_variables.R")
 set.seed(2)
+macro_grupo <- 4
 data_path <- "results/clustered_macrogroup_with_soccerment.csv"
 players_1 <- read_csv(data_path, show_col_types = FALSE) |>
   distinct() |>
+  filter(grupos == macro_grupo) |>
   filter(`Minutes played` > 900)
 
-macro_grupo <- 5
 
-metric <- "central_midfielder"
+metric <- "central_attackers"
 variables <- players_1 %>%
   select_variables[[metric]]()
 my_umap <- variables %>%
@@ -35,5 +36,5 @@ ggsave(glue::glue("figurita_second_{metric}.png"))
 
 players_1$s_grupos <- factor(groups$cluster)
 
-cleaned_players %>%
-  write_csv(glue::glue("results/second_clustered_with_{metric}.csv"))
+players_1 %>%
+  write_csv(glue::glue("results/second_clustered_macro_{macro_grupo}_with_{metric}.csv"))
