@@ -8,7 +8,10 @@ get_principal_variables <- function(players) {
   players_rotations <- players |>
     get_pca() |>
     get_rotations_from_pca()
+  .obtain_unique_variables(players_rotations)
+}
 
-  all_variables <- comprehenr::to_vec(for (i in 1:6) sort_pca_positive(players_rotations, i)[1:4, 2]) |>
+.obtain_unique_variables <- function(principal_variables) {
+  comprehenr::to_vec(for (i in 1:6) sort_pca_positive(principal_variables, i)[1:4, 2]) |>
     unique()
 }
