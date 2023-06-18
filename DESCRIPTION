@@ -10,6 +10,7 @@ Config/testthat/edition: 3
 Description: Librería para clasificar jugadores. Los datos vienen de Wyscout.
 Encoding: UTF-8
 Imports:
+    dplyr,
     R6,
     tidyverse,
     umap

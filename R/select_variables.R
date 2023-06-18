@@ -1,6 +1,6 @@
 select_soccerment <- function(all_variables) {
   all_variables |>
-    select(
+    dplyr::select(
       c(
         "Interceptions per 90",
         "Sliding tackles per 90",
@@ -19,7 +19,7 @@ select_soccerment <- function(all_variables) {
         "Crosses to goalie box per 90",
         "Passes to penalty area per 90",
         "Back passes per 90",
-        "Lateral passes per 90",
+        "Lateral passes per 90"
       )
     )
 }
