@@ -3,3 +3,7 @@ read_subgroup_of_players <- function(path, sub_group) {
     dplyr::distinct() |>
     dplyr::filter(s_grupos == sub_group)
 }
+
+get_principal_variables <- function(players) {
+
+}
