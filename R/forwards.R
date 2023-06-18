@@ -5,10 +5,10 @@ read_subgroup_of_players <- function(path, sub_group) {
 }
 
 get_principal_variables <- function(players) {
-  players_rotations <- players |>
+  players |>
     get_pca() |>
-    get_rotations_from_pca()
-  .obtain_unique_variables(players_rotations)
+    get_rotations_from_pca() |>
+    .obtain_unique_variables()
 }
 
 .obtain_unique_variables <- function(principal_variables) {
