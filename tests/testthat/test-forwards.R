@@ -7,3 +7,13 @@ describe("read data and filter by subgroups", {
     expect_equal(obtained, expected)
   })
 })
+
+describe("Get the principal variables", {
+  it("get_principal_variables", {
+    subgroup_path <- "/workdir/tests/data/data_2_daves_3.csv"
+    players <- readr::read_csv(subgroup_path, show_col_types = FALSE)
+    obtained <- get_principal_variables(players)
+    expected <- c()
+    expect_equal(obtained, expected)
+  })
+})
