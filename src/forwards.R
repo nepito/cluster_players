@@ -7,13 +7,8 @@ source("/workdir/R/forwards.R")
 sub_group <- 3
 players <- read_subgroup_of_players("results/second_clustered_macro_2_with_daves.csv", sub_group)
 
-players_pca <- players |>
-  get_pca()
-
-players_rotations <- get_rotations_from_pca(players_pca)
-
-all_variables <- comprehenr::to_vec(for (i in 1:6) sort_pca_positive(players_rotations, i)[1:4, 2]) |>
-  unique()
+all_variables <- players |>
+  get_principal_variables()
 
 cuantiles_players <- players |>
   select(all_of(c("Player", all_variables)))
