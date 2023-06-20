@@ -6,7 +6,7 @@ find_macro_group_for_all_players <- function(data_path = "/workdir/results/clust
 
 obtain_group_from_name <- function(player_name) {
   player_row <- find_macro_group_for_all_players() |>
-    dplyr::filter(Player == player_name, year == 23)
+    .filter_player_and_year(player_name)
   return(list("name" = player_row[["Player"]], "macrogroup" = player_row[["grupos"]]))
 }
 
