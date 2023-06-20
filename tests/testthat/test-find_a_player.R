@@ -30,9 +30,20 @@ describe("Find macro group", {
     obtained <- obtain_subgroup_from_name(player_name)
     expected <- list(
       "name" = "Matheus Cunha",
-      "macrogroup" = 5,
+      "macrogroup" = 4,
       "subgroup" = 2,
-      "path_file" = "/workdir/results/second_clustered_macro_5_with_central_midfielder.csv"
+      "path_file" = "/workdir/results/second_clustered_macro_4_with_central_attackers.csv"
+    )
+    expect_equal(obtained, expected)
+  })
+  it("Find second group: N. Collins", {
+    player_name <- "N. Collins"
+    obtained <- obtain_subgroup_from_name(player_name)
+    expected <- list(
+      "name" = "N. Collins",
+      "macrogroup" = 2,
+      "subgroup" = 2,
+      "path_file" = "/workdir/results/second_clustered_macro_2_with_daves.csv"
     )
     expect_equal(obtained, expected)
   })
