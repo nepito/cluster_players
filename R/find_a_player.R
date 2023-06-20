@@ -12,7 +12,7 @@ obtain_group_from_name <- function(player_name) {
 
 obtain_subgroup_from_name <- function(player_name) {
   player_group <- obtain_group_from_name(player_name)
-  data_path <- "/workdir/results/second_clustered_macro_4_with_central_attackers.csv"
+  data_path <- PATHS_BY_MACRO[[as.character(player_group$macrogroup)]]
   player_row <- find_macro_group_for_all_players(data_path, last_column = 116) |>
     .filter_player_and_year(player_name)
   return(
@@ -29,3 +29,9 @@ obtain_subgroup_from_name <- function(player_name) {
   player_row |>
     dplyr::filter(Player == player_name, year == season_year)
 }
+
+PATHS_BY_MACRO <- list(
+  "2" = "/workdir/results/second_clustered_macro_2_with_daves.csv",
+  "4" = "/workdir/results/second_clustered_macro_4_with_central_attackers.csv",
+  "5" = "/workdir/results/second_clustered_macro_5_with_central_midfielders.csv"
+)
