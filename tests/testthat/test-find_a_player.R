@@ -47,4 +47,15 @@ describe("Find macro group", {
     )
     expect_equal(obtained, expected)
   })
+  it("Find second group: S. Pérez Bouquet", {
+    player_name <- "S. Pérez Bouquet"
+    obtained <- obtain_subgroup_from_name(player_name)
+    expected <- list(
+      "name" = "S. Pérez Bouquet",
+      "macrogroup" = 5,
+      "subgroup" = 2,
+      "path_file" = "/workdir/results/second_clustered_macro_5_with_central_midfielder.csv"
+    )
+    expect_equal(obtained, expected)
+  })
 })
