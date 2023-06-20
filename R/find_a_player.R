@@ -19,7 +19,8 @@ obtain_subgroup_from_name <- function(player_name) {
     list(
       "name" = player_row[["Player"]],
       "macrogroup" = player_row[["grupos"]],
-      "subgroup" = player_row[["s_grupos"]]
+      "subgroup" = player_row[["s_grupos"]],
+      "path_file" = data_path
     )
   )
 }
