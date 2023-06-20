@@ -17,7 +17,12 @@ describe("Find macro group", {
   it("Find second group", {
     player_name <- "Hee-Chan Hwang"
     obtained <- obtain_subgroup_from_name(player_name)
-    expected <- list("name" = "Hee-Chan Hwang", "macrogroup" = 4, "subgroup" = 2)
+    expected <- list(
+      "name" = "Hee-Chan Hwang",
+      "macrogroup" = 4,
+      "subgroup" = 2,
+      "path_file" = "/workdir/results/second_clustered_macro_4_with_central_attackers.csv"
+    )
     expect_equal(obtained, expected)
   })
 })
