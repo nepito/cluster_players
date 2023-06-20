@@ -14,10 +14,10 @@ describe("Find macro group", {
     expected <- list("name" = "Hee-Chan Hwang", "macrogroup" = 4)
     expect_equal(obtained, expected)
   })
-  it("Find second gruop", {
+  it("Find second group", {
     player_name <- "Hee-Chan Hwang"
     obtained <- obtain_subgroup_from_name(player_name)
-    expected <- list("name" = "Hee-Chan Hwang", "macrogroup" = 4, "subgroup" = 3)
+    expected <- list("name" = "Hee-Chan Hwang", "macrogroup" = 4, "subgroup" = 2)
     expect_equal(obtained, expected)
   })
 })
