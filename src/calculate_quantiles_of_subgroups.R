@@ -5,9 +5,10 @@ source("/workdir/R/select_variables.R")
 source("/workdir/R/type_of_variable.R")
 source("/workdir/R/forwards.R")
 source("/workdir/R/find_a_player.R")
+source("/workdir/R/cli_options.R")
 
-
-player_name <- "H. Martín"
+opciones <- cli_cluster_project()
+player_name <- opciones[["player"]]
 players_and_groups <- obtain_subgroup_from_name(player_name)
 sub_group <- players_and_groups[["subgroup"]]
 group <- players_and_groups[["macrogroup"]]
