@@ -2,7 +2,7 @@ library(tidyverse)
 library(umap)
 source("/workdir/R/expansion_all_players.R")
 source("/workdir/R/select_variables.R")
-source("/workdir/R/tyoe_of_variable.R")
+source("/workdir/R/type_of_variable.R")
 source("/workdir/R/forwards.R")
 source("/workdir/R/find_a_player.R")
 

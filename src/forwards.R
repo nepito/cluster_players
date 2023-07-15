@@ -2,10 +2,10 @@ library(tidyverse)
 library(umap)
 source("/workdir/R/expansion_all_players.R")
 source("/workdir/R/select_variables.R")
-source("/workdir/R/tyoe_of_variable.R")
+source("/workdir/R/type_of_variable.R")
 source("/workdir/R/forwards.R")
-sub_group <- 3
-players <- read_subgroup_of_players("results/second_clustered_macro_2_with_daves.csv", sub_group)
+sub_group <- 1
+players <- read_subgroup_of_players("results/second_clustered_macro_5_with_central_midfielder.csv", sub_group)
 
 all_variables <- players |>
   get_principal_variables()
@@ -35,3 +35,5 @@ for (i in 1:nrow(cuantiles_players)) {
 cuantiles_players$dista <- dista
 cuantiles_players$index <- 1:nrow(cuantiles_players)
 cuantiles_players$year <- players$year
+
+max_ref <- comprehenr::to_vec(for(variable in all_variables) which.max(cuantiles_players[[variable]]))
