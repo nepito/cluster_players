@@ -7,14 +7,22 @@ source("/workdir/R/forwards.R")
 source("/workdir/R/find_a_player.R")
 
 
-player_name <- "Hee-Chan Hwang"
+player_name <- "H. Martín"
 players_and_groups <- obtain_subgroup_from_name(player_name)
 sub_group <- players_and_groups[["subgroup"]]
+group <- players_and_groups[["macrogroup"]]
 path_file <- players_and_groups[["path_file"]]
 players <- read_subgroup_of_players(path_file, sub_group)
 
 all_variables <- players |>
   get_principal_variables()
+
+path_best_players <- glue::glue("/workdir/results/best_player_by_group_{group}_and_subgroup_{sub_group}.csv")
+
+best_players <- comprehenr::to_vec(for (varible in all_variables) which.max(players[[varible]]))
+players[best_players,c(1,2,8,114)] |>
+  add_column(all_variables) |>
+  write_csv(path_best_players)
 
 cuantiles_players <- players |>
   select(all_of(c("Player", all_variables)))

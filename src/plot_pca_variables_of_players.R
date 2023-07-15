@@ -1,15 +1,16 @@
 library(tidyverse)
 logo <- list(
-  "inglaterra" = "/workdir/tests/data/logo_premier.png",
+  "Premier League" = "/workdir/tests/data/logo_premier.png",
   "Serie A" = "/workdir/tests/data/logo_serie_a.png",
-  "Primeira liga" = "/workdir/tests/data/logo_primeira.png"
+  "Primeira liga" = "/workdir/tests/data/logo_primeira.png",
+  "Liga MX" = "/workdir/tests/data/logo_mx.png"
 )
-league <- "Serie A"
+league <- "Liga MX"
 nies <- png::readPNG("/workdir/tests/data/logo_nies.png", native = TRUE)
 premier <- png::readPNG(logo[[league]], native = TRUE)
-larga_players <- readr::read_csv("results/larga_player.csv") |>
+larga_players <- readr::read_csv("results/larga_player.csv", show_col_types = FALSE) |>
   distinct()
-player_name <- "J. Vásquez"
+player_name <- "H. Martín"
 player_stats <- larga_players |>
   dplyr::filter(Player == player_name) |>
   arrange(type_variable)
