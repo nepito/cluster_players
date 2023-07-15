@@ -32,6 +32,7 @@ obtain_subgroup_from_name <- function(player_name) {
 
 PATHS_BY_MACRO <- list(
   "2" = "/workdir/results/second_clustered_macro_2_with_daves.csv",
+  "3" = "/workdir/results/second_clustered_macro_3_with_soccerment.csv",
   "4" = "/workdir/results/second_clustered_macro_4_with_central_attackers.csv",
   "5" = "/workdir/results/second_clustered_macro_5_with_central_midfielder.csv"
 )
