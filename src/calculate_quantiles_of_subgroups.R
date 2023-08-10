@@ -21,7 +21,7 @@ all_variables <- players |>
 path_best_players <- glue::glue("/workdir/results/best_player_by_group_{group}_and_subgroup_{sub_group}.csv")
 
 best_players <- comprehenr::to_vec(for (varible in all_variables) which.max(players[[varible]]))
-players[best_players,c(1,2,8,114)] |>
+players[best_players, c(1, 2, 8, 114)] |>
   add_column(all_variables) |>
   write_csv(path_best_players)
 
