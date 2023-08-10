@@ -16,5 +16,17 @@ type_of_variable <- list(
   "Progressive runs per 90" = "Buildup",
   "Dribbles per 90" = "Chance creation",
   "Crosses per 90" = "Buildup",
-  "Crosses to goalie box per 90" = "Buildup"
+  "Crosses to goalie box per 90" = "Buildup",
+  "Passes per 90" = "Buildup",
+  "Average long pass length, m" = "Buildup",
+  "Key passes per 90" = "Buildup",
+  "xA per 90" = "Buildup",
+  "xG per 90" = "Finishing",
+  "shots" = "Finishing",
+  "Penalties taken" = "Finishing",
+  "Penalties_won" = "Finishing",
+  "Received passes per 90" = "Chance creation",
+  "Successful_dribbles" = "Chance creation",
+  "Received long passes per 90" = "Chance creation",
+  "Fouls suffered per 90" = "Chance creation"
 )
