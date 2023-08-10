@@ -5,7 +5,8 @@ logo <- list(
   "Premier League" = "/workdir/tests/data/logo_premier.png",
   "Serie A" = "/workdir/tests/data/logo_serie_a.png",
   "Primeira liga" = "/workdir/tests/data/logo_primeira.png",
-  "Liga MX" = "/workdir/tests/data/logo_mx.png"
+  "Liga MX" = "/workdir/tests/data/logo_mx.png",
+  "Liga Expansión" = "/workdir/tests/data/logo_expansion.png"
 )
 opciones <- cli_cluster_project()
 league <- opciones[["league"]]
@@ -92,4 +93,4 @@ player_to_plot %>% ggplot(aes(id, deciles, fill = factor(type_variable))) +
   patchwork::inset_element(p = nies, left = 0.005, bottom = 0.01, right = 0.295, top = 0.1) +
   patchwork::inset_element(p = premier, left = 0.900, bottom = 0.90, right = 1.05, top = 1.05)
 
-ggsave(glue::glue("{player_name}.jpg"))
+ggsave(glue::glue("/workdir/results/players/{player_name}.jpg"))
