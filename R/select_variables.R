@@ -70,6 +70,32 @@ select_daves <- function(all_variables) {
     )
 }
 
+just_select_daves <- function(all_variables) {
+  all_variables |>
+    select(
+      c(
+        "xG per 90",
+        "xA per 90",
+        "Touches in box per 90",
+        "Progressive runs per 90",
+        "Back passes per 90",
+        "Lateral passes per 90",
+        "Average long pass length, m",
+        "Key passes per 90",
+        "Shots per 90",
+        "shots",
+        "Progressive passes per 90",
+        "Sliding tackles per 90",
+        "Passes per 90",
+        "Fouls suffered per 90",
+        "Dribbles per 90",
+        "Successful_dribbles",
+        "Penalties taken",
+        "Penalties_won"
+      )
+    )
+}
+
 select_second <- function(all_variables) {
   all_variables |>
     select(
@@ -149,5 +175,6 @@ select_variables <- list(
   "soccerment" = select_soccerment,
   "second" = select_second,
   "central_attackers" = central_attackers,
-  "central_midfielder" = central_midfielder
+  "central_midfielder" = central_midfielder,
+  "just_select_daves" = just_select_daves
 )
