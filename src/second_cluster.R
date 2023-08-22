@@ -9,7 +9,7 @@ players_1 <- read_csv(data_path, show_col_types = FALSE) |>
   filter(grupos == macro_grupo) |>
   filter(`Minutes played` > 900)
 
-metrics <- c("", "daves", "", "central_attackers", "central_midfielder")
+metrics <- c("second", "daves", "soccerment", "central_attackers", "central_midfielder")
 metric <- metrics[macro_grupo]
 variables <- players_1 %>%
   select_variables[[metric]]()
