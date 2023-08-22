@@ -1,7 +1,14 @@
 ID_FROM_LEAGUE_NAME <- list(
   "femenil_mx" = 673,
   "LigaMX" = 262,
-  "ligue_1" = 61
+  "ligue_1" = 61,
+  "bundesliga" = 78,
+  "eredivisie" = 88,
+  "expansion" = 263,
+  "LaLiga" = 140,
+  "premier" = 39,
+  "primeira_liga" = 94,
+  "serie_a" = 135
 )
 
 find_league_id_from_list <- function(list_files) {
