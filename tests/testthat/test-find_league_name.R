@@ -32,4 +32,10 @@ describe("find_year_from_list()", {
     expected <- c("21.csv", "22.csv", "23.csv")
     expect_equal(obtained, expected)
   })
+  it("Silver 🥈: Remove csv estension", {
+    list_files <- c("21.csv", "22.csv", "23.csv")
+    obtained <- remove_csv_extension(list_files)
+    expected <- c("21", "22", "23")
+    expect_equal(obtained, expected)
+  })
 })
