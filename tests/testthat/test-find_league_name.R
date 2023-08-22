@@ -1,3 +1,12 @@
+describe("find_league_id_from_list()", {
+  it("Gold 🪙", {
+    list_files <- c("/workdir/data/femenil_mx_22-23.csv", "/workdir/data/LigaMX_22-23.csv", "/workdir/data/ligue_1_22-23.csv")
+    expected <- c(673, 262, 61)
+    obtained <- find_league_id_from_list(list_files)
+    expect_equal(obtained, expected)
+  })
+})
+
 describe("find_league_name_from_list()", {
   it("Gold 🪙", {
     list_files <- c("/workdir/data/femenil_mx_22-23.csv", "/workdir/data/LigaMX_22-23.csv", "/workdir/data/ligue_1_22-23.csv")
