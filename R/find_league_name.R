@@ -1,3 +1,15 @@
+ID_FROM_LEAGUE_NAME <- list(
+  "femenil_mx" = 673,
+  "LigaMX" = 262,
+  "ligue_1" = 61
+)
+
+find_league_id_from_list <- function(list_files) {
+  league_names <- find_league_name_from_list(list_files)
+  comprehenr::to_vec(for (name in league_names) ID_FROM_LEAGUE_NAME[[name]])
+}
+
+
 find_league_name_from_list <- function(list_files) {
   list_files |>
     .extract_name_files() |>
@@ -11,6 +23,7 @@ find_league_name_from_list <- function(list_files) {
 .extract_name_files <- function(list_files) {
   comprehenr::to_vec(for (file in list_files) stringr::str_split(file, "/")[[1]][4])
 }
+
 
 find_year_from_list <- function(list_files) {
   list_files |>
