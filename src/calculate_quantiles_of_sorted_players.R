@@ -4,7 +4,7 @@ source("/workdir/R/type_of_variable.R")
 
 player_longer <- tibble::tibble()
 sorted_players <- read_csv("results/sorted_players.csv", show_col_types = FALSE)
-clustar_variables <- c(names(sorted_players)[c(1, 2, 8, 114:116)], names(type_of_variable))
+clustar_variables <- c(names(sorted_players)[c(1, 2, 8, 114:117)], names(type_of_variable))
 metrics <- c("", "just_select_daves", "soccerment", "central_attackers", "central_midfielder")
 daves_values <- sorted_players |> select_variables[["daves"]]()
 daves_variables <- names(daves_values)
@@ -21,13 +21,13 @@ for (macro_grupo in 2:5) {
   macro_players <- sorted_players |>
     filter(grupos == macro_grupo)
   macro_variables <- macro_players |> select_variables[[metric]]()
-  macro_names <- macro_players[, c(1:4)]
+  macro_names <- macro_players[, c(1:5)]
   all_variables <- names(macro_variables)
   for (variable in all_variables) {
     macro_names[variable] <- macro_variables[variable]
   }
   lp <- macro_names |>
-    pivot_longer(!c("Player", "Team", "Minutes played", "year"), names_to = "variable", values_to = "deciles")
+    pivot_longer(!c("Player", "Team", "Minutes played", "year", "league_id"), names_to = "variable", values_to = "deciles")
   player_longer <- rbind(player_longer, lp)
 }
 all_variables <- player_longer$variable |> unique()
@@ -36,10 +36,10 @@ tov <- tibble::tibble("variable" = all_variables, "type_variable" = typo_valiabl
 year_to_select <- 23
 player_longer |>
   filter(year == year_to_select) |>
-  select(c(Player, deciles, variable)) |>
+  select(c(Player, league_id, deciles, variable)) |>
   left_join(tov) |>
   write_csv(glue::glue("results/longer_player_table_{year_to_select}.csv"))
-sorted_players[, c(1:4)] |>
+sorted_players[, c(1:5)] |>
   filter(year == year_to_select) |>
   select(-year) |>
   write_csv(glue::glue("results/minutes_played_{year_to_select}.csv"))
