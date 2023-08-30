@@ -28,5 +28,11 @@ type_of_variable <- list(
   "Received passes per 90" = "Chance creation",
   "Successful_dribbles" = "Chance creation",
   "Received long passes per 90" = "Chance creation",
-  "Fouls suffered per 90" = "Chance creation"
+  "Fouls suffered per 90" = "Chance creation",
+  "Short / medium passes per 90" = "Buildup",
+  "Second assists per 90" = "Buildup",
+  "Shot assists per 90" = "Buildup",
+  "Third assists per 90" = "Buildup",
+  "Smart passes per 90" = "Buildup",
+  "Forward passes per 90" = "Buildup"
 )

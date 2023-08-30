@@ -1,6 +1,7 @@
 library(tidyverse)
 
 paths <- c(
+  "results/second_clustered_macro_1_with_second.csv",
   "results/second_clustered_macro_2_with_daves.csv",
   "results/second_clustered_macro_3_with_soccerment.csv",
   "results/second_clustered_macro_4_with_central_attackers.csv",

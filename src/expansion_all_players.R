@@ -35,3 +35,12 @@ ggsave(glue::glue("figurita_{metric}.png"))
 
 players_1 %>%
   write_csv(glue::glue("results/clustered_macrogroup_with_{metric}.csv"))
+
+
+players_1 %>%
+  add_column(
+    x = my_umap$layout[, 1],
+    y = my_umap$layout[, 2],
+  ) |>
+  select(c(Player, year, grupos, x, y)) |>
+  write_csv("results/groups_players_and_x_y.csv")
